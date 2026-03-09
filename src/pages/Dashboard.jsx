@@ -1,13 +1,16 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import Sidebar from "../components/Sidebar";
 
 function Dashboard() {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const session = JSON.parse(localStorage.getItem("session"));
 
-    const session = JSON.parse(localStorage.getItem("session"));
+  useEffect(() => {
 
     if (!session) {
       navigate("/login");
@@ -22,42 +25,38 @@ function Dashboard() {
       navigate("/login");
     }
 
-  }, []);
+  }, [navigate, session]);
 
-  const handleLogout = () => {
-    localStorage.removeItem("session");
-    navigate("/login");
-  };
+  const timeLeft = session
+    // eslint-disable-next-line react-hooks/purity
+    ? Math.floor((session.expiry - Date.now()) / 1000)
+    : 0;
 
   return (
 
-    <div className="p-10">
+    <div>
 
-      <div className="flex justify-between">
+      <Navbar />
 
-        <h1 className="text-3xl font-bold">
-          Dashboard
-        </h1>
+      <div className="flex">
 
-        <button
-          onClick={handleLogout}
-          className="bg-red-500 text-white px-4 py-2 rounded"
-        >
-          Logout
-        </button>
+        <Sidebar />
+
+        <div className="p-6 flex-1">
+
+          <h1 className="text-3xl font-bold">
+            Welcome {user?.name} 👋
+          </h1>
+
+          <p className="mt-4 text-gray-600">
+            Session expires in {timeLeft} seconds
+          </p>
+
+        </div>
 
       </div>
 
-      <p className="mt-5 text-lg">
-        Welcome to the E-Commerce Dashboard 
-      </p>
-
-      <p className="mt-2 text-gray-600">
-        Session expires in 5 minutes.
-      </p>
-
     </div>
-
   );
 }
 
