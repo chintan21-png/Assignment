@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
@@ -6,6 +6,7 @@ import Sidebar from "../components/Sidebar";
 function Dashboard() {
 
   const navigate = useNavigate();
+  const [sidebarOpen, setSidebarOpen] = useState(true);
 
   const user = JSON.parse(localStorage.getItem("user"));
   const session = JSON.parse(localStorage.getItem("session"));
@@ -28,7 +29,6 @@ function Dashboard() {
   }, [navigate, session]);
 
   const timeLeft = session
-    // eslint-disable-next-line react-hooks/purity
     ? Math.floor((session.expiry - Date.now()) / 1000)
     : 0;
 
@@ -36,14 +36,17 @@ function Dashboard() {
 
     <div>
 
-      <Navbar />
+      <Navbar
+        toggleSidebar={() => setSidebarOpen(!sidebarOpen)}
+      />
 
       <div className="flex">
 
-        <Sidebar />
+        <Sidebar
+          isOpen={sidebarOpen}
+        />
 
         <div className="p-6 flex-1">
-
           <h1 className="text-3xl font-bold">
             Welcome {user?.name} 👋
           </h1>
@@ -51,7 +54,6 @@ function Dashboard() {
           <p className="mt-4 text-gray-600">
             Session expires in {timeLeft} seconds
           </p>
-
         </div>
 
       </div>

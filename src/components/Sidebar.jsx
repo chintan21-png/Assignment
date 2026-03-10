@@ -1,31 +1,29 @@
 import { Link } from "react-router-dom";
 
-function Sidebar() {
+function Sidebar({ isOpen }) {
 
   return (
-    <div className="w-60 bg-gray-800 text-white min-h-screen p-5">
 
-      <ul className="space-y-4">
+    <div
+      className={`
+        bg-slate-800 text-white w-64 p-6
+        transition-all duration-300
+        ${isOpen ? "block" : "hidden"}
+        md:block
+      `}
+    >
 
-        <li>
-          <Link to="/dashboard">Dashboard</Link>
-        </li>
+      <nav className="flex flex-col gap-4">
 
-        <li>
-          <Link to="/products">Products</Link>
-        </li>
+        <Link to="/dashboard">Dashboard</Link>
+        <Link to="/products">Products</Link>
+        <Link to="/cart">Cart</Link>
+        <Link to="/profile">Profile</Link>
 
-        <li>
-          <Link to="/cart">Cart</Link>
-        </li>
-
-        <li>
-          <Link to="/profile">Profile</Link>
-        </li>
-
-      </ul>
+      </nav>
 
     </div>
+
   );
 }
 

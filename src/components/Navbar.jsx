@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-function Navbar() {
+function Navbar({ toggleSidebar }) {
 
   const navigate = useNavigate();
 
@@ -10,11 +10,24 @@ function Navbar() {
   };
 
   return (
-    <div className="flex justify-between items-center bg-blue-600 text-white p-4">
 
-      <h1 className="text-xl font-bold">
-        E-Commerce Dashboard
-      </h1>
+    <div className="bg-blue-600 text-white flex items-center justify-between px-4 py-3">
+
+      <div className="flex items-center gap-3">
+
+        {/* Hamburger Menu */}
+        <button
+          className="text-2xl"
+          onClick={toggleSidebar}
+        >
+          ☰
+        </button>
+
+        <h1 className="text-lg md:text-xl font-bold">
+          E-Commerce Dashboard
+        </h1>
+
+      </div>
 
       <button
         onClick={handleLogout}
@@ -24,6 +37,7 @@ function Navbar() {
       </button>
 
     </div>
+
   );
 }
 
