@@ -1,29 +1,39 @@
 import { Link } from "react-router-dom";
 
-function Sidebar({ isOpen }) {
+function Sidebar({ isOpen, closeSidebar }) {
 
   return (
+    <>
+      <div
+        className={`
+        fixed md:static top-0 left-0 h-full w-64
+        bg-slate-800 text-white p-6
+        transform ${isOpen ? "translate-x-0" : "-translate-x-full"}
+        md:translate-x-0
+        transition-transform duration-300
+        z-50
+        `}
+      >
 
-    <div
-      className={`
-        bg-slate-800 text-white w-64 p-6
-        transition-all duration-300
-        ${isOpen ? "block" : "hidden"}
-        md:block
-      `}
-    >
+        <nav className="flex flex-col gap-4">
 
-      <nav className="flex flex-col gap-4">
+          <Link to="/dashboard" onClick={closeSidebar}>Dashboard</Link>
+          <Link to="/products" onClick={closeSidebar}>Products</Link>
+          <Link to="/cart" onClick={closeSidebar}>Cart</Link>
+          <Link to="/profile" onClick={closeSidebar}>Profile</Link>
 
-        <Link to="/dashboard">Dashboard</Link>
-        <Link to="/products">Products</Link>
-        <Link to="/cart">Cart</Link>
-        <Link to="/profile">Profile</Link>
+        </nav>
 
-      </nav>
+      </div>
 
-    </div>
-
+      {/* overlay */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black opacity-40 md:hidden"
+          onClick={closeSidebar}
+        />
+      )}
+    </>
   );
 }
 
