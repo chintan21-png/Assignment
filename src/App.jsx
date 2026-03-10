@@ -6,38 +6,57 @@ import Products from "./pages/Products";
 import Cart from "./pages/Cart";
 import Profile from "./pages/Profile";
 import ProtectedRoute from "./components/ProtectedRoute";
+import MainLayout from "./layouts/MainLayout";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
 
+        {/* Public Routes */}
         <Route path="/" element={<Register />} />
         <Route path="/login" element={<Login />} />
 
-        <Route path="/dashboard" element={
-          <ProtectedRoute>
-            <Dashboard />
-          </ProtectedRoute>
-        }/>
+        {/* Layout Wrapper */}
+        <Route element={<MainLayout />}>
 
-        <Route path="/products" element={
-          <ProtectedRoute>
-            <Products />
-          </ProtectedRoute>
-        }/>
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route path="/cart" element={
-          <ProtectedRoute>
-            <Cart />
-          </ProtectedRoute>
-        }/>
+          <Route
+            path="/products"
+            element={
+              <ProtectedRoute>
+                <Products />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route path="/profile" element={
-          <ProtectedRoute>
-            <Profile />
-          </ProtectedRoute>
-        }/>
+          <Route
+            path="/cart"
+            element={
+              <ProtectedRoute>
+                <Cart />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <Profile />
+              </ProtectedRoute>
+            }
+          />
+
+        </Route>
 
       </Routes>
     </BrowserRouter>

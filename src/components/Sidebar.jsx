@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 function Sidebar({ isOpen, closeSidebar }) {
 
   return (
+
     <>
       <div
         className={`
@@ -15,7 +16,7 @@ function Sidebar({ isOpen, closeSidebar }) {
         `}
       >
 
-        <nav className="flex flex-col gap-4">
+        <nav className="flex flex-col gap-4 mt-10">
 
           <Link to="/dashboard" onClick={closeSidebar}>Dashboard</Link>
           <Link to="/products" onClick={closeSidebar}>Products</Link>
@@ -26,13 +27,13 @@ function Sidebar({ isOpen, closeSidebar }) {
 
       </div>
 
-      {/* overlay */}
       {isOpen && (
         <div
           className="fixed inset-0 bg-black opacity-40 md:hidden"
           onClick={closeSidebar}
         />
       )}
+
     </>
   );
 }

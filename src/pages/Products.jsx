@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import Navbar from "../components/Navbar";
-import Sidebar from "../components/Sidebar";
 import ProductCard from "../components/ProductCard";
 import useDebounce from "../hooks/useDebounce";
 
@@ -38,10 +36,10 @@ function Products() {
   });
   return (
     <div>
-      <Navbar />
+    
 
       <div className="flex">
-        <Sidebar />
+      
 
         <div className="p-6 flex-1">
           <h2 className="text-2xl font-bold mb-6">Products</h2>

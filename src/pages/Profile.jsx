@@ -1,57 +1,40 @@
 import { useState, useEffect } from "react";
-import Navbar from "../components/Navbar";
-import Sidebar from "../components/Sidebar";
 
 function Profile() {
-
   const [user, setUser] = useState({
     name: "",
     email: "",
-    password: ""
+    password: "",
   });
 
   useEffect(() => {
-
     const storedUser = JSON.parse(localStorage.getItem("user"));
 
     if (storedUser) {
       setUser(storedUser);
     }
-
   }, []);
 
   const handleChange = (e) => {
     setUser({
       ...user,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSave = () => {
-
     localStorage.setItem("user", JSON.stringify(user));
 
     alert("Profile updated successfully!");
   };
 
   return (
-
     <div>
-
-      <Navbar />
-
       <div className="flex">
-
-        <Sidebar />
-
         <div className="p-6 flex-1">
-
-          <h2 className="text-2xl font-bold mb-6">
-            Profile
-          </h2>
+          <h2 className="text-2xl font-bold mb-6">Profile</h2>
 
           <div className="max-w-md space-y-4">
-
             <input
               type="text"
               name="name"
@@ -85,13 +68,9 @@ function Profile() {
             >
               Save Changes
             </button>
-
           </div>
-
         </div>
-
       </div>
-
     </div>
   );
 }

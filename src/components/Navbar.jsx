@@ -15,7 +15,6 @@ function Navbar({ toggleSidebar }) {
 
       <div className="flex items-center gap-3">
 
-        {/* Hamburger Menu */}
         <button
           className="text-2xl"
           onClick={toggleSidebar}

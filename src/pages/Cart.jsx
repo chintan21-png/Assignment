@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import Navbar from "../components/Navbar";
-import Sidebar from "../components/Sidebar";
 
 function Cart() {
   const [cartItems, setCartItems] = useState([]);
@@ -44,11 +42,7 @@ function Cart() {
 
   return (
     <div>
-      <Navbar />
-
       <div className="flex">
-        <Sidebar />
-
         <div className="p-6 flex-1">
           <h2 className="text-2xl font-bold mb-6">Shopping Cart</h2>
 
