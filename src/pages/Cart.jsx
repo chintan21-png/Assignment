@@ -51,48 +51,59 @@ function Cart() {
           {cartItems.map((item) => (
             <div
               key={item.id}
-              className="flex justify-between items-center border p-4 mb-4 rounded"
+              className="border p-4 mb-4 rounded bg-white shadow-sm"
             >
-              <div className="flex items-center gap-4">
-                <img src={item.image} className="h-16" />
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                {/* Product Info */}
+                <div className="flex items-center gap-4">
+                  <img
+                    src={item.image}
+                    className="h-16 w-16 object-contain"
+                    alt={item.title}
+                  />
 
-                <div>
-                  <p className="font-semibold">{item.title}</p>
+                  <div>
+                    <p className="font-semibold text-sm md:text-base line-clamp-2">
+                      {item.title}
+                    </p>
 
-                  <p className="text-blue-600">${item.price}</p>
+                    <p className="text-blue-600 font-medium">${item.price}</p>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap items-center gap-4">
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => updateQuantity(item.id, "decrease")}
+                      className="bg-gray-300 px-3 py-1 rounded"
+                    >
+                      -
+                    </button>
+
+                    <span className="font-medium">{item.quantity}</span>
+
+                    <button
+                      onClick={() => updateQuantity(item.id, "increase")}
+                      className="bg-gray-300 px-3 py-1 rounded"
+                    >
+                      +
+                    </button>
+                  </div>
+
+                  {/* Subtotal */}
+                  <p className="font-bold text-gray-700">
+                    ${(item.price * item.quantity).toFixed(2)}
+                  </p>
+
+                  {/* Remove Button */}
+                  <button
+                    onClick={() => removeProduct(item.id)}
+                    className="bg-red-500 text-white px-3 py-1 rounded"
+                  >
+                    Remove
+                  </button>
                 </div>
               </div>
-
-              <div className="flex items-center gap-3">
-                <button
-                  onClick={() => updateQuantity(item.id, "decrease")}
-                  className="bg-gray-300 px-2 rounded"
-                >
-                  -
-                </button>
-
-                <span>{item.quantity}</span>
-
-                <button
-                  onClick={() => updateQuantity(item.id, "increase")}
-                  className="bg-gray-300 px-2 rounded"
-                >
-                  +
-                </button>
-              </div>
-
-              <div>
-                <p className="font-bold">
-                  ${(item.price * item.quantity).toFixed(2)}
-                </p>
-              </div>
-
-              <button
-                onClick={() => removeProduct(item.id)}
-                className="bg-red-500 text-white px-3 py-1 rounded"
-              >
-                Remove
-              </button>
             </div>
           ))}
 
