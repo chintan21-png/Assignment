@@ -5,21 +5,28 @@ This project demonstrates **authentication, session management, product listing 
 
 ---
 
+# 🌐 Live Demo
+
+🚀 **Live Application:**
+https://assignment-swart-eight.vercel.app/
+
+---
+
 # 🚀 Features
 
-### 🔐 Authentication
+## 🔐 Authentication
 
 * User **Registration & Login**
 * Email and Password validation
 * Error message for invalid credentials
 
-### ⏱ Session Management
+## ⏱ Session Management
 
 * Session created after login
 * Session expires automatically after **5 minutes**
 * Protected routes prevent unauthorized access
 
-### 📊 Dashboard
+## 📊 Dashboard
 
 * Welcome message with user name
 * Session countdown timer
@@ -31,7 +38,7 @@ This project demonstrates **authentication, session management, product listing 
   * Logout
 * Responsive layout with **Navbar + Sidebar**
 
-### 🛍 Product Listing
+## 🛍 Product Listing
 
 Products are fetched from a **public API**.
 
@@ -42,54 +49,61 @@ Example APIs:
 
 Each product card includes:
 
-* Product image
-* Product title
-* Price
-* Category tag
-* Add to Cart button
+* Product Image
+* Product Title
+* Product Price
+* Category Tag
+* Add to Cart Button
 
 Extra Features:
 
 * Loading state while fetching products
-* Error handling
+* API error handling
 * Product search
 * Category filter
 * Infinite product scrolling
 
-### 🛒 Cart Management
+---
+
+## 🛒 Cart Management
+
+Users can:
 
 * Add products to cart
-* Prevent duplicate products
-* Increase / decrease product quantity
-* Remove products from cart
+* Prevent duplicate items
+* Increase / decrease quantity
+* Remove items from cart
 
 Cart displays:
 
-* Product subtotal
+* Item subtotal
 * Cart total price
 
-### 👤 User Profile
+---
 
-Users can view and edit:
+## 👤 User Profile
 
-* Name
-* Email
-* Password
+Users can:
 
-Data is stored in **LocalStorage**.
+* View profile information
+* Edit name
+* Edit email
+* Update password
+
+Data is stored using **LocalStorage**.
 
 ---
 
 # 🎨 UI & UX
 
 * Fully responsive design
-* Works on **Mobile, Tablet, and Desktop**
+* Works on **Mobile, Tablet, Desktop**
 * Clean dashboard layout
-* Sidebar navigation
+* Collapsible sidebar navigation
 * Modern product cards
 * Smooth loading states
 
-Built using **Tailwind CSS utility classes only**.
+Built entirely using **Tailwind CSS utility classes**.
 
 ---
 
@@ -98,7 +112,7 @@ Built using **Tailwind CSS utility classes only**.
 | Technology     | Purpose            |
 | -------------- | ------------------ |
 | React          | Frontend framework |
-| React Router   | Page routing       |
+| React Router   | Routing            |
 | Tailwind CSS   | Styling            |
 | LocalStorage   | Data persistence   |
 | Fake Store API | Product data       |
@@ -136,29 +150,29 @@ src
 
 Clone the repository:
 
-```bash
+```
 git clone https://github.com/your-username/ecommerce-dashboard.git
 ```
 
-Navigate to project folder:
+Navigate to the project folder:
 
-```bash
+```
 cd ecommerce-dashboard
 ```
 
 Install dependencies:
 
-```bash
+```
 npm install
 ```
 
 Run the project:
 
-```bash
+```
 npm run dev
 ```
 
-The app will run at:
+The application will run at:
 
 ```
 http://localhost:5173
@@ -166,11 +180,11 @@ http://localhost:5173
 
 ---
 
-# 🔑 Test Credentials
+# 📦 API Used
 
-You can register a new account using the **Register page**.
+Fake Store API
 
-User data will be stored in **LocalStorage**.
+https://fakestoreapi.com/products
 
 ---
 
@@ -189,24 +203,16 @@ Mobile features include:
 
 ---
 
-# 📦 API Used
-
-Fake Store API
-
-https://fakestoreapi.com/products
-
----
-
 # 🧠 Learning Outcomes
 
 This project demonstrates:
 
 * React component architecture
-* State management with hooks
+* State management using React Hooks
 * API integration
 * Authentication logic
-* Session handling
-* Cart logic implementation
+* Session management
+* Cart functionality
 * Responsive UI development
 
 ---
@@ -219,7 +225,7 @@ Possible enhancements:
 * Payment integration
 * Order history
 * Wishlist functionality
-* Dark mode
+* Dark mode support
 
 ---
 
@@ -232,6 +238,6 @@ LJ University (2022 – 2026)
 
 ---
 
-# ⭐ If you like this project
+# ⭐ Support
 
-Give the repository a **star ⭐ on GitHub**.
+If you found this project useful, consider **starring ⭐ the repository**.
